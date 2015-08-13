@@ -214,9 +214,9 @@ Add the bin and deps directories to your system path.
 #### MATLAB's Java version ####
 
 The Gravity distribution is current built with Java 6. Recent versions of MATLAB ship with Java 6 and as such should be compatible. If you build Gravity with a later version of Java (e.g. Java 7) you will need to configure MATLAB to use that same version. This could potentially cause stability issues with MATLAB so proceed with caution. In order to configure MATLAB's java, set an MATLAB_JAVA environment variable to point to your jre directory. For example (on linux):
-{{{
-export MATLAB_JAVA=/usr/lib/jvm/java-7-oracle/jre
-}}}
+
+    export MATLAB_JAVA=/usr/lib/jvm/java-7-oracle/jre
+
 Your path may differ.
 
 #### Configure MATLAB's static java class path to include Gravity ####
@@ -225,22 +225,22 @@ Follow the MATLAB instructions for your specific version of MATLAB. A couple exa
 
 ##### MATLAB R2010b #####
 Edit the classpath.txt file in <MATLAB_INSTALL_DIR>/toolbox/local where <MATLAB_INSTALL_DIR> is the location of the MATLAB installation (e.g. /usr/local/MATLAB/R2010b on linux). Add the following lines to the end of the file:
-{{{
-<GRAVITY_HOME>/lib/gravity.jar
-<GRAVITY_HOME>/deps/protobuf-java.jar
-<GRAVITY_HOME>/lib/MATLAB/guava-13.0.1.jar
-<GRAVITY_HOME>/lib/MATLAB/MATLABGravitySubscriber.jar
-}}}
+
+    <GRAVITY_HOME>/lib/gravity.jar
+    <GRAVITY_HOME>/deps/protobuf-java.jar
+    <GRAVITY_HOME>/lib/MATLAB/guava-13.0.1.jar
+    <GRAVITY_HOME>/lib/MATLAB/MATLABGravitySubscriber.jar
+
 where <GRAVITY_HOME> is whereever you installed your Gravity distribution.
 
 ##### MATLAB R2012b #####
 For R2012b, you need to add the following lines to <HOME>/.matlab/R2012b/javaclasspath.txt (where <HOME> is your user's home directory):
-{{{
-<GRAVITY_HOME>/lib/gravity.jar
-<GRAVITY_HOME>/deps/protobuf-java.jar
-<GRAVITY_HOME>/lib/MATLAB/guava-13.0.1.jar
-<GRAVITY_HOME>/lib/MATLAB/MATLABGravitySubscriber.jar
-}}}
+
+    <GRAVITY_HOME>/lib/gravity.jar
+    <GRAVITY_HOME>/deps/protobuf-java.jar
+    <GRAVITY_HOME>/lib/MATLAB/guava-13.0.1.jar
+    <GRAVITY_HOME>/lib/MATLAB/MATLABGravitySubscriber.jar
+
 where <GRAVITY_HOME> is whereever you installed your Gravity distribution.
 
 #### Configure MATLAB's library path ####
@@ -248,10 +248,10 @@ where <GRAVITY_HOME> is whereever you installed your Gravity distribution.
 Follow the MATLAB instructions for your specific version of MATLAB. For example:
 
 Add the following line to the <MATLAB_HOME>/toolbox/local/librarypath.txt (where <MATLAB_HOME> is the MATLAB installation directory):
-{{{
-<GRAVITY_HOME>/lib
-<GRAVITY_HOME>/deps
-}}}
+
+    <GRAVITY_HOME>/lib
+    <GRAVITY_HOME>/deps
+
 where <GRAVITY_HOME> is whereever you installed your Gravity distribution.  Depending on where the protobuf and zmq compiled libraries are installed, you may also need to add /usr/local/lib here.  
 
 This is the mechanism for at least R2010b through R2012b
@@ -260,47 +260,43 @@ This is the mechanism for at least R2010b through R2012b
 
 MATLAB ships with its own set of runtime GCC libraries. For compatibility with Gravity we'll want MATLAB to use the system libraries consistent with Gravity. In order to do this, we just need to move the MATLAB libs so that MATLAB will use the system libs. For example:
 
-{{{
-> cd /usr/local/MATLAB/R2010b/sys/os/glnxa64
-> sudo mkdir old
-> sudo mv libstdc++.* libgcc_s* old
-}}}
+
+    > cd /usr/local/MATLAB/R2010b/sys/os/glnxa64
+    > sudo mkdir old
+    > sudo mv libstdc++.* libgcc_s* old
 
 #### Set system library path to include Gravity ####
 Create this file (you'll need root privileges): /etc/ld.so.conf.d/gravity.conf
 Edit that file to include lines for the path to the Gravity lib and deps directory:
-{{{
-<GRAVITY_HOME>/lib
-<GRAVITY_HOME>/deps
-}}}
+
+    <GRAVITY_HOME>/lib
+    <GRAVITY_HOME>/deps
+
 Then, to refresh the system libs:
-{{{
-> sudo ldconfig
-}}}
+
+    > sudo ldconfig
+
 
 ### Windows ###
 
 #### Configure MATLAB's static java class path to include Gravity ####
 Create or edit "javaclasspath.txt" inside the C:\Users\<USER>\AppData\Roaming\MathWorks\MATLAB\<MATLAB_VERSION> directory. Add the following lines: 
-{{{
-<GRAVITY_HOME>\lib\gravity.jar
-<GRAVITY_HOME>\lib\MATLAB\guava-13.0.1.jar
-<GRAVITY_HOME>\lib\MATLAB\MATLABGravitySubscriber.jar
-<GRAVITY_HOME>\deps\protobuf-java.jar
-}}}
+
+    <GRAVITY_HOME>\lib\gravity.jar
+    <GRAVITY_HOME>\lib\MATLAB\guava-13.0.1.jar
+    <GRAVITY_HOME>\lib\MATLAB\MATLABGravitySubscriber.jar
+    <GRAVITY_HOME>\deps\protobuf-java.jar
 
 #### Configure MATLAB's library path ####
 Edit the "librarypath.txt" file located in C:\Program Files\MATLAB\<MATLAB_VERSION>\toolbox\local directory. Add the following lines:
-{{{
-<GRAVITY_HOME>/lib
-<GRAVITY_HOME>/deps
-}}}
 
+    <GRAVITY_HOME>/lib
+    <GRAVITY_HOME>/deps
 
 #### Test Gravity ####
 See the MATLAB examples distributed with Gravity for a more complete test, but a simple test to ensure the setup is complete would be to attempt to create a Gravity Node within MATLAB:
-{{{
->> path(path, '<GRAVITY_HOME>/include/MATLAB')   % replace GRAVITY_HOME to point to your Gravity installation
->> gravityNode = GravityNode('TEST');
-}}}
+
+    >> path(path, '<GRAVITY_HOME>/include/MATLAB')   % replace GRAVITY_HOME to point to your Gravity installation
+    >> gravityNode = GravityNode('TEST');
+
 If this executes successfully you are ready to run the more complete tests.
