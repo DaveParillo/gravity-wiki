@@ -592,13 +592,12 @@ Subscribing to data also looks pretty much the same.  First we define a listener
 
 There are no differences here at all.  And subscribing to the data:
 
-	// IPC isn't supported in Windows.
-#ifndef WIN32
-	//Subscribe to the IPC data product.  
-	MiscGravitySubscriber ipcSubscriber;
-	gn.subscribe("IPCDataProduct", ipcSubscriber);
-#endif
-
+		// IPC isn't supported in Windows.
+	#ifndef WIN32
+		//Subscribe to the IPC data product.  
+		MiscGravitySubscriber ipcSubscriber;
+		gn.subscribe("IPCDataProduct", ipcSubscriber);
+	#endif
 
 also looks identical to what we have in the tcp case.
 
