@@ -1,6 +1,4 @@
 
-[[PageOutline(1-5, Contents, inline)]]
-
 # GravitySetup #
 
 This page details what you need to set up in Linux and Windows so that you can build Gravity for C++ and Java.
@@ -121,7 +119,7 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
       http://code.google.com/p/protobuf/downloads/detail?name=protoc-2.5.0-win32.zip&can=2&q=
 
   Add the protoc.exe location to your path.
-  Set the environment variable '''PROTOBUF_HOME''' to Protobuf root (e.g. C:\protobuf-2.5.0)
+  Set the environment variable **PROTOBUF_HOME** to Protobuf root (e.g. C:\protobuf-2.5.0)
 
 * Java Development Kit (JDK) (32-bit or 64-bit depending on build requirements)
     http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
@@ -145,16 +143,16 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
 
     Extract these files and add the installation directory (e.g. c:\win_flex_bison) to your path 
 
-    Set the environment variable '''LEX_CMD''' to win_flex.exe 
+    Set the environment variable **LEX_CMD** to win_flex.exe 
     
-    Set the environment variable '''YACC_CMD''' to win_bison.exe 
+    Set the environment variable **YACC_CMD** to win_bison.exe 
 
 * Boost
     http://www.boost.org/
 
     Download the latest version of the Boost C++ library 
 
-    Set the environment variable '''BOOST_HOME''' to the Boost root (e.g. C:\boost_1_57_0)
+    Set the environment variable **BOOST_HOME** to the Boost root (e.g. C:\boost_1_57_0)
 
 * Maven
     http://maven.apache.org/download.cgi
@@ -171,18 +169,18 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
   * 64-bit: http://miru.hk/archive/ZeroMQ-3.2.3~miru2.3-x64.exe
   Download and run the installer for the appropriate version of ZeroMQ (Get both if intending both 32-bit & 64-bit Gravity builds)
 
-  Set the environment variable '''ZMQ_HOME''' to ZeroMQ root (e.g. C:\Program Files (x86)\ZeroMQ 3.2.3). ''Note that you’ll need to change this to toggle between the 32-bit and 64-bit versions''.
+  Set the environment variable **ZMQ_HOME** to ZeroMQ root (e.g. C:\Program Files (x86)\ZeroMQ 3.2.3). ''Note that you’ll need to change this to toggle between the 32-bit and 64-bit versions''.
 
 * PThreads
 
   Download (and extract to a local folder) the PThreads libraries from ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip
 
-  Set environment variable '''PTHREADS_HOME''' to PThreads pre built root (e.g. C:\pthreads-w32-2-9-1-release\Pre-built.2\)
+  Set environment variable **PTHREADS_HOME** to PThreads pre built root (e.g. C:\pthreads-w32-2-9-1-release\Pre-built.2\)
 
 
 ### Building Gravity ###
 * Clone from the git repository (or otherwise acquire) the Gravity source tree
-* Set the environment variable '''GRAVITY_HOME''' to Gravity root directory (e.g. C:\gravity)
+* Set the environment variable **GRAVITY_HOME** to Gravity root directory (e.g. C:\gravity)
 * Update environmental variables as required for the desired build configuration
   * Specifically, if changing between 32-bit and 64-bit builds, the following environment variables will need to be set appropriately:
     * ZMQ_HOME
