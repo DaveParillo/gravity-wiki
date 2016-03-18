@@ -15,7 +15,7 @@ Each of the examples can be built and run (not currently supported in Windows). 
 * [[UsingProtobufs]]
 * [[MultipleDataProducts]]
 * [[GravityServices]]
-* [[C++OddsAndEnds]]
+* [[OddsAndEnds]]
 * [[JavaPubSub]]
 * [[JavaServices]]
 * [[GravityConfigFile]]
