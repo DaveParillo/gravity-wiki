@@ -5,7 +5,7 @@ This example focuses on how to configure Gravity nodes using an .ini file.
 
 ### The Gravity.ini file ###
 
-When a Gravity node starts, it will look in the current working directory for an .ini file with the same name as the given ComponentID, e.g. ConfigFileExample.ini.  If that isn't found it will look for a Gravity.ini file in the same location.  In this example we'll use this Gravity.ini file:
+When a Gravity node starts, it will look in the current working directory for an .ini file with the same name as the given ComponentID, e.g. if the component is named ConfigFileExample, then it will look for ConfigFileExample.ini.  If that isn't found it will look for a file named Gravity.ini in the same location.  In this example we'll use this Gravity.ini file:
 
 	#
 	# This section is common to all components
@@ -41,9 +41,9 @@ When a Gravity node starts, it will look in the current working directory for an
 	nsamps_minus = $nsamps-$na_samples 
 	operatorstr = "plus + minus - asterisk * divison / "    #quotes turn off arithmetic
 
-We can see that this file has two sections (denoted by a name between [ ] brackets): general and ConfigFileExample.  The general section is applicable to any node that uses this .ini file.  This is a convenient location to set some common parameters, like log level and the ServiceDirectory URL.
+We can see that this file has two sections (denoted by a name between [ ] brackets): general and ConfigFileExample.  The general section is applicable to any component that uses this .ini file.  This is a convenient location to set some common parameters, like log level and the ServiceDirectory URL.
 
-The other sections in the file are component specific - the name of the section should always match a Component ID (note that this can be used for ServiceDirectory specific settings as well, as we'll see in the next example).  In this example, our component name is ConfigFileExample.  Any settings in the general section will be overridden by settings in this section for the ConfigFileExample component only.
+The other sections in the file are component specific - the name of the section should always match a Component ID (note that this can be used for ServiceDirectory specific settings as well, as we'll see in the next example).  In this example, our component name is ConfigFileExample.  Any settings in the general section will be overridden by settings in this section for the ConfigFileExample component.
 
 Now we can look at how to retrieve those values in our code.
 
