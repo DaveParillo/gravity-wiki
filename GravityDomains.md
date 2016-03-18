@@ -1,6 +1,6 @@
 ## Using Gravity Domains - Example 9 ##
 
-In all of the previous examples, we've started and accessed the ServiceDirectory using it's default URL: "tcp://localhost:5555".  This works fine, but there is another mechanism for finding the ServiceDirectory which allows a Gravity society to be much more robust: Gravity Domains.  When using a domain, the ServiceDirectory will broadcast on its availability local network using a configured domain name.  The following shows an example Gravity.ini file configured this way.
+In all of the previous examples, we've started and accessed the ServiceDirectory using its default URL: "tcp://localhost:5555".  This works fine, but there is another mechanism for finding the ServiceDirectory which allows a Gravity society to be much more robust: Gravity Domains.  When using a domain, the ServiceDirectory will broadcast its availability on the local network using a configured domain name.  The following shows an example Gravity.ini file configured this way.
 
 ### Gravity.ini Domain Configuration ###
 
@@ -15,7 +15,7 @@ In all of the previous examples, we've started and accessed the ServiceDirectory
 	BroadcastEnabled=true
 	ConsoleLogLevel=warn
 
-In this example both ServiceDirectory and components (ProtobufDataProductPublisher and ProtobufDataProductSubscriber) read their configuration from this Gravity.ini file.  Because they don't have their own sections, the two components use the values in the general section.  The new parameter here, Domain, tells the components the name of the ServiceDirectory domain that they'll be using.  Because the Domain value isn't overridden in the ServiceDirectory section, this also tells the ServiceDirectory the name of the domain that it will advertise.
+In this example both ServiceDirectory and the components (ProtobufDataProductPublisher and ProtobufDataProductSubscriber) read their configuration from this Gravity.ini file.  Because they don't have their own sections, the two components use the values in the general section.  The new parameter here, Domain, tells the components the name of the ServiceDirectory domain that they'll be using.  Because the Domain value isn't overridden in the ServiceDirectory section, this also tells the ServiceDirectory the name of the domain name that it will use to advertise itself.  You can use multiple domains on the same network as long as their names are unique.
 
 In the ServiceDirectory section, we still need to set the URL that will ultimately be used.  But only the ServiceDirectory will get this from the configuration file.  If this URL were set in the general section, the components would complain that they were given both a domain and a URL, and then would ignore the domain.  The other important setting here is BroadcastEnabled.  This tells the ServiceDirectory to send out broadcast messages advertising its availability.  For this example, we've also turned the ServiceDirectory console log level down.
 
