@@ -4,7 +4,7 @@ This example highlights a few other features available in Gravity.  One is suppo
 
 ### Retrieving Configuration Values ###
 
-!GravityNode provides a few methods for retrieving configuration values of different types.  In MiscComponent2 we have:
+We'll go into more detail on using .ini files a little later, but here's a quick primer for now.  GravityNode provides a few methods for retrieving configuration values of different types.  In MiscComponent2 we have:
 
 	//Get a parameter from either the Gravity.ini config file, the MiscGravityComponentID.ini config file, or the config service.  
 	int interval = gn.getIntParam("HeartbeatInterval", //Param Name
