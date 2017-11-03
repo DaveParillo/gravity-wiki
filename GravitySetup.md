@@ -13,7 +13,15 @@ The Linux setup is fairly straightforward.  You just need to install:
 * bison/flex
 * libboost-dev
 
-The last fouritems above can probably be installed using the package installation system on your flavor of Linux (e.g. sudo apt-get install swig).  Installing Java may be a little more involved.  You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux (replace jdk1.7.0_51 with jdk1.6.0_xx).
+The last four items above can probably be installed using the package installation system on your flavor of Linux (e.g. sudo apt-get install swig).  If a newer version of swig is needed than is provided by your package management system, you can download the needed version from http://www.swig.org/ and build it.
+
+Installing Java may be a little more involved.  You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux (replace jdk1.7.0_51 with jdk1.6.0_xx).
+
+For Python support (currently only supported on Linux), there are a couple of additional dependencies (note that you can disable Python support with the --without-python option to the configure script):
+* python-dev
+  * This can be installed with your package management system
+* python-protobuf   
+  * This can be installed with your package management system or pip (e.g. sudo pip install protobuf)
 
 You must also download and build the following:
 * ZeroMQ
