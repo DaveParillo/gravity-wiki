@@ -93,11 +93,19 @@ And then we make the asynchronous request that uses the listener:
 		params1.setMultiplicandB(2);
 		multRequest1.setData(params1);
 		
-		// Make an Asyncronous request for multiplication
-		gn.request("Multiplication", //Service Name
-					multRequest1, //Request
-					requestor, //Object containing callback that will get the result.  
-					"8 x 2"); //A string that identifies which request this is.  
+		// Make an Asynchronous request for multiplication
+		do {
+			ret = gn.request("Multiplication", //Service Name
+					 multRequest1, //Request
+					 requestor, //Object containing callback that will get the result.
+					 "8 x 2"); //A string that identifies which request this is.
+			// Service may not be registered yet
+			if (ret != GravityReturnCode.SUCCESS)
+			{
+				Log.warning("Failed request to Multiplication, retrying...");
+				Thread.sleep(1000);
+			}
+		} while (ret != GravityReturnCode.SUCCESS);
 
 
 And lastly, we make the synchronous request against the same service:
