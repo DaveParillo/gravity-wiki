@@ -34,7 +34,8 @@ You must also download and build the following:
 
     Extract in ~/gravity_deps/ Run ./configure, make, and make install
     
-    Build the Java runtime library using Maven (see the readme in java\)
+    Build the Java runtime library using Maven (see the readme in java\).
+    NOTE: Maven does not use the standard proxy environment variables (http_proxy, etc) - you must configure Maven explicitly.  Directions for this can be found here: https://maven.apache.org/guides/mini/guide-proxies.html.
     
     sudo ldconfig
 
