@@ -297,7 +297,7 @@ Create or edit "javaclasspath.txt" inside the C:\Users\<USER>\AppData\Roaming\Ma
 #### Configure MATLAB's library path ####
 Edit the "librarypath.txt" file located in C:\Program Files\MATLAB\<MATLAB_VERSION>\toolbox\local directory. Add the following lines:
 
-    <GRAVITY_HOME>/lib
+    <GRAVITY_HOME>/bin
     <GRAVITY_HOME>/deps
 
 #### Test Gravity ####
