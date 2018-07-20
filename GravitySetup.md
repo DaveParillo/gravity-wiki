@@ -300,6 +300,9 @@ Edit the "librarypath.txt" file located in C:\Program Files\MATLAB\<MATLAB_VERSI
     <GRAVITY_HOME>/bin
     <GRAVITY_HOME>/deps
 
+#### Configure system path ####
+If you haven't done so already, add the bin and deps directories to your system path.
+
 #### Test Gravity ####
 See the MATLAB examples distributed with Gravity for a more complete test, but a simple test to ensure the setup is complete would be to attempt to create a Gravity Node within MATLAB:
 
