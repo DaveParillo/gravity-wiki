@@ -7,7 +7,7 @@ This page details what you need to set up in Linux and Windows so that you can b
 
 The Linux setup is fairly straightforward.  You just need to install:
 
-* Oracle's Java version 6 JDK
+* Oracle's Java JDK
 * swig
 * maven
 * bison/flex
@@ -15,7 +15,8 @@ The Linux setup is fairly straightforward.  You just need to install:
 
 The last four items above can probably be installed using the package installation system on your flavor of Linux (e.g. sudo apt-get install swig).  If a newer version of swig is needed than is provided by your package management system, you can download the needed version from http://www.swig.org/ and build it.
 
-Installing Java may be a little more involved.  You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux (replace jdk1.7.0_51 with jdk1.6.0_xx).
+Installing Java may be a little more involved.  You can skip building Java with the --without-java option to the configure script.  
+You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux.
 
 For Python support (currently only supported on Linux), there are a couple of additional dependencies (note that you can disable Python support with the --without-python option to the configure script):
 * python-dev
@@ -30,7 +31,7 @@ You must also download and build the following:
     Extract in ~/gravity_deps/  Run ./configure, make,and make install
 
 * Google Protocol Buffers
-    https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
+    https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
 
     Extract in ~/gravity_deps/ Run ./configure, make, and make install
     
@@ -40,11 +41,11 @@ You must also download and build the following:
     sudo ldconfig
 
 * Copy dependencies into gravity/deps
-    * cp [HOME]/gravity_deps/protobuf-2.5.0/src/.libs/libproto* [HOME]/gravity/deps
+    * cp [HOME]/gravity_deps/protobuf-2.6.1/src/.libs/libproto* [HOME]/gravity/deps
     * cp [HOME]/gravity_deps/zeromq-3.2.3/src/.libs/libzmq.* [HOME]/gravity/deps
     * cp [HOME]/gravity_deps/zeromq-3.2.3/include/* [HOME]/gravity/deps
-    * cp [HOME]/gravity_deps/protobuf-2.5.0/src/protoc [HOME]/gravity/deps
-    * cp [HOME]/gravity_deps/protobuf-2.5.0/java/target/protobuf-2.5.0.jar [HOME]/gravity/deps/protobuf-java.jar
+    * cp [HOME]/gravity_deps/protobuf-2.6.1/src/protoc [HOME]/gravity/deps
+    * cp [HOME]/gravity_deps/protobuf-2.6.1/java/target/protobuf-2.6.1.jar [HOME]/gravity/deps/protobuf-java.jar
 
 
 * Clone from the git repository (or otherwise acquire) the Gravity source tree
@@ -98,10 +99,10 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
             * http://go.microsoft.com/?linkid=9816758
 
 * Google Protocol Buffers
-    * Download version 2.5.0 source and extract to local folder (e.g. C:\protobuf-2.5.0)
-        * http://code.google.com/p/protobuf/downloads/detail?name=protobuf-2.5.0.tar.bz2&can=2&q=
+    * Download version 2.6.1 source and extract to local folder (e.g. C:\protobuf-2.6.1)
+        * http://code.google.com/p/protobuf/downloads/detail?name=protobuf-2.6.1.tar.bz2&can=2&q=
     * Build libprotobuf libs (''note that switching between VS2010 & VS2012 builds will require repeating this step'')
-      * Open project file is vsprojects directory (e.g. C:\protobuf-2.5.0\vsprojects\protobuf.sln) in Visual Studio 2012 Express
+      * Open project file is vsprojects directory (e.g. C:\protobuf-2.6.1\vsprojects\protobuf.sln) in Visual Studio 2012 Express
       * Click ‘OK’ when prompted to upgrade to VS2012.
       * If building for Visual Studio 2012
         * Right-click on the libprotobuf project in the “Solution Explorer” and select “Properties”.
@@ -124,11 +125,11 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
         * Select Configuration Properties->General and change “Target Name” from “$(ProjectName)” to “$(ProjectName)_d”
         * Build the Debug configuration
  
-* Download protoc.exe (version 2.5.0) and place in protobuf folder (e.g. C:\protobuf-2.5.0)
-      http://code.google.com/p/protobuf/downloads/detail?name=protoc-2.5.0-win32.zip&can=2&q=
+* Download protoc.exe (version 2.6.1) and place in protobuf folder (e.g. C:\protobuf-2.6.1)
+      http://code.google.com/p/protobuf/downloads/detail?name=protoc-2.6.1-win32.zip&can=2&q=
 
   Add the protoc.exe location to your path.
-  Set the environment variable **PROTOBUF_HOME** to Protobuf root (e.g. C:\protobuf-2.5.0)
+  Set the environment variable **PROTOBUF_HOME** to Protobuf root (e.g. C:\protobuf-2.6.1)
 
 * Java Development Kit (JDK) (32-bit or 64-bit depending on build requirements)
     http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
@@ -220,7 +221,7 @@ Add the bin and deps directories to your system path.
 
 #### MATLAB's Java version ####
 
-The Gravity distribution is current built with Java 6. Recent versions of MATLAB ship with Java 6 and as such should be compatible. If you build Gravity with a later version of Java (e.g. Java 7) you will need to configure MATLAB to use that same version. This could potentially cause stability issues with MATLAB so proceed with caution. In order to configure MATLAB's java, set an MATLAB_JAVA environment variable to point to your jre directory. For example (on linux):
+The Gravity distribution is current built with Java 6. Recent versions of MATLAB ship with Java 6 and as such should be compatible. If you build Gravity with a later version of Java (e.g. Java 7) you will need to configure MATLAB to use that same version. This could potentially cause stability issues with MATLAB so proceed with caution. In order to configure MATLAB's java, set a MATLAB_JAVA environment variable to point to your jre directory. For example (on linux):
 
     export MATLAB_JAVA=/usr/lib/jvm/java-7-oracle/jre
 
