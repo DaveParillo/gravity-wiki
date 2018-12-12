@@ -38,6 +38,10 @@ You must also download and build the following:
     Build the Java runtime library using Maven (see the readme in java\).
     NOTE: Maven does not use the standard proxy environment variables (http_proxy, etc) - you must configure Maven explicitly.  Directions for this can be found here: https://maven.apache.org/guides/mini/guide-proxies.html.
     
+    For Python, also follow these steps:<BR>
+        - cd to the python directory in your protobuf distribution<BR>
+        - python setup.py build
+
     sudo ldconfig
 
 * Copy dependencies into gravity/deps
