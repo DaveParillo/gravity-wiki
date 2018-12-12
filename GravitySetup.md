@@ -55,7 +55,7 @@ You must also download and build the following:
     * cp [HOME]/gravity_deps/protobuf-2.6.1/python/google [HOME]/gravity/deps
 
 
-* Clone from the git repository (or otherwise acquire) the Gravity source tree
+* Clone from the git repository (or otherwise acquire) the Gravity source tree<BR>
     cd to the gravity source directory (e.g "\home\gravity")
     
     ./configure
