@@ -19,7 +19,7 @@ Installing Java may be a little more involved.  You can skip building Java with 
 You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux.
 
 _Python Support_<BR>
-For Python support (currently only supported on Linux), there are a couple of additional build dependencies (note that you can disable Python support with the --without-python option to the configure script):
+For Python support (currently only supported on Linux with Python 2.7), there are a couple of additional build dependencies (note that you can disable Python support with the --without-python option to the configure script):
 * python-dev
   * This can be installed with your package management system
 * python-protobuf   
@@ -83,6 +83,13 @@ You must also download and build the following:
 
     sudo ldconfig
 
+* Additional Python Runtime Dependencies
+    * setuptools (https://pypi.org/project/setuptools/)
+    * packaging  (https://pypi.org/project/packaging/)
+    * pyparsing  (https://pypi.org/project/pyparsing/)
+    * six        (https://pypi.org/project/six/)
+
+   Each of these can be installed via pip or (probably) by your package management system (e.g. sudo apt-get install python-setuptools python-packaging python-pyparsing python-six).
 
 ## Windows 32/64 bit build ##
 The tools below are required to build the 32/64  bit Gravity libraries.  Install them in the order listed.
