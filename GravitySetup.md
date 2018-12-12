@@ -18,11 +18,14 @@ The last four items above can probably be installed using the package installati
 Installing Java may be a little more involved.  You can skip building Java with the --without-java option to the configure script.  
 You can download an installer here: http://www.oracle.com/technetwork/java/javase/downloads/index.html.  The complete installation depends on your system.  Some info on installing on Ubuntu can be found here: http://askubuntu.com/questions/67909/how-do-i-install-oracle-jdk-6 or here: http://www.wikihow.com/Install-Oracle-Java-JDK-on-Ubuntu-Linux.
 
-For Python support (currently only supported on Linux), there are a couple of additional dependencies (note that you can disable Python support with the --without-python option to the configure script):
+_Python Support_<BR>
+For Python support (currently only supported on Linux), there are a couple of additional build dependencies (note that you can disable Python support with the --without-python option to the configure script):
 * python-dev
   * This can be installed with your package management system
 * python-protobuf   
   * This can be installed with your package management system or pip (e.g. sudo pip install protobuf)
+
+***
 
 You must also download and build the following:
 * ZeroMQ
@@ -33,16 +36,15 @@ You must also download and build the following:
 * Google Protocol Buffers
     https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
 
-    Extract in ~/gravity_deps/ Run ./configure, make, and make install
+    Extract in ~/gravity_deps/ Run ./configure, make, and make install<BR>
+    sudo ldconfig
     
-    Build the Java runtime library using Maven (see the readme in java\).
+    _For Java_: Build the Java runtime library using Maven (see the readme in java\).
     NOTE: Maven does not use the standard proxy environment variables (http_proxy, etc) - you must configure Maven explicitly.  Directions for this can be found here: https://maven.apache.org/guides/mini/guide-proxies.html.
     
-    For Python, also follow these steps:<BR>
+    _For Python_: Also follow these steps:<BR>
         - cd to the python directory in your protobuf distribution<BR>
         - python setup.py build
-
-    sudo ldconfig
 
 * Copy dependencies into gravity/deps
     * cp [HOME]/gravity_deps/protobuf-2.6.1/src/.libs/libproto* [HOME]/gravity/deps
