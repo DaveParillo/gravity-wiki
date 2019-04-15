@@ -1,6 +1,6 @@
 ## Using Gravity Domains - Example 9 ##
 
-In all of the previous examples we've started and accessed the ServiceDirectory using its default URL, "tcp://localhost:5555".  This works fine, but there is another mechanism for finding the ServiceDirectory which allows a Gravity society to be much more robust: Gravity Domains.  When using a domain, the ServiceDirectory will broadcast its availability on the local network using a configured domain name.  The following shows an example Gravity.ini file configured this way.
+In all of the previous examples we've started and accessed the ServiceDirectory using its default URL, "tcp://localhost:5555".  This works fine, but there is another mechanism for finding the ServiceDirectory which allows Gravity to be much more robust: Gravity Domains.  When using a domain, the ServiceDirectory will broadcast its availability on the local network using a configured domain name.  The following shows an example Gravity.ini file configured this way.
 
 ### Gravity.ini Domain Configuration ###
 
