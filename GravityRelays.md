@@ -43,4 +43,4 @@ To make the Gravity Relay easy and seamless to use, we designed it to insert its
 
 ### Running the example ###
 
-
+You can run this example as you would any of the others.  This run script starts the ServiceDirectory, publisher, subscriber and Relay, and then kills and restarts the Relay.  You can see in the output of the subscriber component when it receives data from the Relay or from the original publisher.
