@@ -9,15 +9,15 @@ The two subscribers each make a connection to the publisher.  When NodeA publish
 
 ### The solution: Gravity Relay ###
 
-With a Gravity Relay, you can ensure that data is only passed between hosts once.  Below is the scenario above with the addition of a Gravity Relay:
+With a Gravity Relay, you can ensure that data is only passed between hosts once.  Below is the same as the above scenario with the addition of a Gravity Relay:
 
 ![With Relay](https://github.com/aphysci/gravity/blob/DocUpdates/test/examples/13-Relay/doc/WithRelay.jpg)
 
-NodeB and NodeC subscribe to and receive the data in exactly the same way that they normally would.  They don't need to know or care that the data was relayed through another component.  If they do care though, there is a flag on the GravityDataProduct (GDP) that indicates that the data was forwarded via a Relay.  More on this, and other details on how to use Relays below.
+In this case, the data is only sent across the network once.  NodeB and NodeC subscribe to and receive the data in exactly the same way that they normally would.  They don't need to know or care that the data was relayed through another component.  If they do care though, there is a flag on the GravityDataProduct (GDP) that indicates that the data was forwarded via a Relay.  More on this, and other details on how to use Relays below.
 
 ### The details: How to set this up ###
 
-The Gravity Relay component was built so that there is very little work required to include it in your GDP data flow.  If you look at the code in the Relay example, you'll see that the code is basically identical to the code in example 2 [Protobuf Data Products](UsingProtobufs).  The only difference is a couple of strings, and the use of GravityDataProduct::isRelayedDataproduct() in the subscriber for the Relay example.  The only real difference is in the Gravity.ini file:
+The Gravity Relay component was built so that there is very little work required to include it in your GDP data flow.  If you look at the code in the Relay example, you'll see that the code is basically identical to the code in example 2 [Protobuf Data Products](UsingProtobufs).  The only difference is a couple of strings, and the use of GravityDataProduct::isRelayedDataproduct() in the subscriber for the Relay example.  The real difference in this example is in the Gravity.ini file:
 
 ```
 [general]
