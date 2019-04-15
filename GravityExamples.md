@@ -20,8 +20,8 @@ Each of the examples can be built and run (not currently supported in Windows). 
 * [[JavaServices]]
 * [Gravity Configuration](GravityConfigFile)
 * [Domains](GravityDomains)
-* [Archiving](GravityArchiving)
-* [Python Pub/Sub](PythonPubSub)
-* [Python Services](PythonServices)
-* [Relays](GravityRelays)
+* [Archiving](GravityArchiving) (To be completed)
+* [Python Pub/Sub](PythonPubSub) (To be completed)
+* [Python Services](PythonServices) (To be completed)
+* [Relays](GravityRelays) (To be completed)
 
