@@ -19,5 +19,5 @@ Each of the examples can be built and run (not currently supported in Windows). 
 * [[JavaPubSub]]
 * [[JavaServices]]
 * [[GravityConfigFile]]
-* [[GravityDomains]]
+* [Domains](GravityDomains)
 
