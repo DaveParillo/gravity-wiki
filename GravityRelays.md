@@ -13,5 +13,27 @@ With a Gravity Relay, you can ensure that data is only passed between hosts once
 
 ![With Relay](https://github.com/aphysci/gravity/blob/DocUpdates/test/examples/13-Relay/doc/WithRelay.jpg)
 
-NodeB and NodeC subscribe to and receive the data in exactly the same way that they normally would.  They don't need to know or care that the data was relayed through another component.  If they do care though, there is a flag on the GravityDataProduct that indicates that the data was forwarded via a Relay.  More on this, and other details on how to use Relays below.
+NodeB and NodeC subscribe to and receive the data in exactly the same way that they normally would.  They don't need to know or care that the data was relayed through another component.  If they do care though, there is a flag on the GravityDataProduct (GDP) that indicates that the data was forwarded via a Relay.  More on this, and other details on how to use Relays below.
+
+### The details: How to set this up ###
+
+The Gravity Relay component was built so that there is very little work required to include it in your GDP data flow.  If you look at the code in the Relay example, you'll see that the code is basically identical to the code in example 2 [Protobuf Data Products](UsingProtobufs).  The only difference is a couple of strings, and the use of GravityDataProduct::isRelayedDataproduct() in the subscriber for the Relay example.  The only real difference is in the Gravity.ini file:
+
+```
+[general]
+ServiceDirectoryURL="tcp://localhost:5555"
+NoConfigServer=true
+LocalLogLevel=DEBUG
+ConsoleLogLevel=DEBUG
+
+[Relay]
+DataProductList="BasicCounterDataProduct"
+#ProvideLocalOnly=false
+```
+
+The general section is the same as normal, although keep in mind there's really not much advantage to using a Relay if all the components are on the same host (localhost as configured here).  localhost is used here to make the example easy to run on anyone's machine without changing the example code or config.
+
+In the Relay section you need to specify all the GDP id's that should be relayed using the DataProductList parameter.  Additional values would be separated by commas (',').  The Relay will register itself as a relay via it's own GravityNode.  This will notify the ServiceDirectory that anyone looking for BasicCounterDataProduct should go to this Relay publisher instead of any other publishers.  Starting a Gravity Relay and configuring it with this parameter is all that is required to include a Relay in your data flow.
+
+Optionally you can also use the ProvideLocalOnly flag (commented out here) to indicate whether you want the output of this Relay to be kept from components running on other machines (the default is True).  This means that the ServiceDirectory will only point subscribers to this Relay as a publisher if they reside on the same host.  Otherwise the ServiceDirectory will point the subscriber to the original publisher(s) of that data. 
 
