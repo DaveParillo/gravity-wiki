@@ -9,4 +9,9 @@ The two subscribers each make a connection to the publisher.  When NodeA publish
 
 ### The solution: Gravity Relay ###
 
+With a Gravity Relay, you can ensure that data is only passed between hosts once.  Below is the scenario above with the addition of a Gravity Relay:
+
 ![With Relay](https://github.com/aphysci/gravity/blob/DocUpdates/test/examples/13-Relay/doc/WithRelay.jpg)
+
+NodeB and NodeC subscribe to and receive the data in exactly the same way that they normally would.  They don't need to know or care that the data was relayed through another component.  If they do care though, there is a flag on the GravityDataProduct that indicates that the data was forwarded via a Relay.  More on this, and other details on how to use Relays below.
+
