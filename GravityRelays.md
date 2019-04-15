@@ -37,3 +37,10 @@ In the Relay section you need to specify all the GDP id's that should be relayed
 
 Optionally you can also use the ProvideLocalOnly flag (commented out here) to indicate whether you want the output of this Relay to be kept from components running on other machines (the default is True).  This means that the ServiceDirectory will only point subscribers to this Relay as a publisher if they reside on the same host.  Otherwise the ServiceDirectory will point the subscriber to the original publisher(s) of that data. 
 
+### Caveat ###
+
+To make the Gravity Relay easy and seamless to use, we designed it to insert itself into a Gravity data flow.  Because of this, it's important that the Gravity Relay be shut down gracefully so that it can remove itself from this data flow (that is, assuming you want to continue running the publishers and subscribers of the data that the Relay was handling).  As mentioned above, once a Relay is registered with the ServiceDirectory, the ServiceDirectory determines whether or not a subscriber should get data from the original source(s) or from the Relay.  If the Relay were to go away, the ServiceDirectory needs to know this so that it can point all (new or old) subscribers to the original source(s) of that data.  The Gravity Relay code is written to respond to SIGINT and SIGTERM signals.  If it catches either of these it will unregister itself and then terminate.  This will allow the other components to function as though it were never there.
+
+### Running the example ###
+
+
