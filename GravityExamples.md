@@ -18,6 +18,10 @@ Each of the examples can be built and run (not currently supported in Windows). 
 * [[OddsAndEnds]]
 * [[JavaPubSub]]
 * [[JavaServices]]
-* [[GravityConfigFile]]
+* [Gravity Configuration](GravityConfigFile)
 * [Domains](GravityDomains)
+* [Archiving](GravityArchiving)
+* [Python Pub/Sub](PythonPubSub)
+* [Python Services](PythonServices)
+* [Relays](GravityRelays)
 
