@@ -44,7 +44,7 @@ You must also download and build the following:
     
     _For Python_: Also follow these steps:<BR>
         - cd to the python directory in your protobuf distribution<BR>
-        - Install pip if it is not already available  (e.g. sudo apt-get install pip)<BR>
+        - Install pip if it is not already available  (e.g. sudo apt-get install python-pip)<BR>
         - python setup.py build
 
 * Copy dependencies into gravity/deps
