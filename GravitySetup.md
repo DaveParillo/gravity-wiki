@@ -53,7 +53,7 @@ You must also download and build the following:
     * cp [HOME]/gravity_deps/zeromq-3.2.3/include/* [HOME]/gravity/deps
     * cp [HOME]/gravity_deps/protobuf-2.6.1/src/protoc [HOME]/gravity/deps
     * cp [HOME]/gravity_deps/protobuf-2.6.1/java/target/protobuf-2.6.1.jar [HOME]/gravity/deps/protobuf-java.jar
-    * cp [HOME]/gravity_deps/protobuf-2.6.1/python/google [HOME]/gravity/deps
+    * cp -r [HOME]/gravity_deps/protobuf-2.6.1/python/google [HOME]/gravity/deps
 
 
 * Clone from the git repository (or otherwise acquire) the Gravity source tree<BR>
