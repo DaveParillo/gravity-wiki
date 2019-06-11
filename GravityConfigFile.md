@@ -12,44 +12,44 @@ that isn't found it will look for a file named Gravity.ini in the same
 location.  In this example we'll use this Gravity.ini file:
 
 ```ini
-  #
-  # This section is common to all components
-  #
-  [general]
-  # Set the log level for logs written to the log file
-  LocalLogLevel=debug
+#
+# This section is common to all components
+#
+[general]
+# Set the log level for logs written to the log file
+LocalLogLevel=debug
 
-  # Set the log level for logs written to the console that started the component
-  ConsoleLogLevel=debug
+# Set the log level for logs written to the console that started the component
+ConsoleLogLevel=debug
 
-  # Without this, Gravity will spend a few seconds trying to retrieve
-  # parameters from a remote ConfigServer.  
-  #NoConfigServer=true
+# Without this, Gravity will spend a few seconds trying to retrieve
+# parameters from a remote ConfigServer.  
+#NoConfigServer=true
 
-  # The URL where the ServiceDirectory will be found.  This value is the same as the default.
-  ServiceDirectoryURL="tcp://localhost:5555"
+# The URL where the ServiceDirectory will be found.  This value is the same as the default.
+ServiceDirectoryURL="tcp://localhost:5555"
 
-  #
-  # This section is specific to the named component.  Any values set here will override values
-  # set in the general section for this component.
-  #
-  [ConfigFileExample]
-  LocalLogLevel=message
-  Fs = 65000
-  bin_ms = ( 1 / $Fs ) * 1000                              #bin size in ms
-  bin_us = $bin_ms * 1000
-  win_ms = 1000
-  na_samples = 100
+#
+# This section is specific to the named component.  Any values set here will override values
+# set in the general section for this component.
+#
+[ConfigFileExample]
+LocalLogLevel=message
+Fs = 65000
+bin_ms = ( 1 / $Fs ) * 1000                              #bin size in ms
+bin_us = $bin_ms * 1000
+win_ms = 1000
+na_samples = 100
 
-  #Parentheses are necessary for order of operations
-  nsamps = $na_samples+(($Fs/1000)*$win_ms)
-  nsamps_minus = $nsamps-$na_samples 
-  operatorstr = "plus + minus - asterisk * divison / "    #quotes turn off arithmetic
+#Parentheses are necessary for order of operations
+nsamps = $na_samples+(($Fs/1000)*$win_ms)
+nsamps_minus = $nsamps-$na_samples 
+operatorstr = "plus + minus - asterisk * divison / "    #quotes turn off arithmetic
 
-    # This value not set here - value will be retrieved from the ConfigServer
-    #config_server_value = 1
-    # This value will override the value retrieved from the ConfigServer
-    config_server_overridden_value = 5
+# This value not set here - value will be retrieved from the ConfigServer
+#config_server_value = 1
+# This value will override the value retrieved from the ConfigServer
+config_server_overridden_value = 5
 
 ```
 
