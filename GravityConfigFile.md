@@ -12,39 +12,39 @@ that isn't found it will look for a file named Gravity.ini in the same
 location.  In this example we'll use this Gravity.ini file:
 
 ```ini
-	#
-	# This section is common to all components
-	#
-	[general]
-	# Set the log level for logs written to the log file
-	LocalLogLevel=debug
+  #
+  # This section is common to all components
+  #
+  [general]
+  # Set the log level for logs written to the log file
+  LocalLogLevel=debug
 
-	# Set the log level for logs written to the console that started the component
-	ConsoleLogLevel=debug
+  # Set the log level for logs written to the console that started the component
+  ConsoleLogLevel=debug
 
-	# Without this, Gravity will spend a few seconds trying to retrieve
-	# parameters from a remote ConfigServer.  
-	#NoConfigServer=true
+  # Without this, Gravity will spend a few seconds trying to retrieve
+  # parameters from a remote ConfigServer.  
+  #NoConfigServer=true
 
-	# The URL where the ServiceDirectory will be found.  This value is the same as the default.
-	ServiceDirectoryURL="tcp://localhost:5555"
+  # The URL where the ServiceDirectory will be found.  This value is the same as the default.
+  ServiceDirectoryURL="tcp://localhost:5555"
 
-	#
-	# This section is specific to the named component.  Any values set here will override values
-	# set in the general section for this component.
-	#
-	[ConfigFileExample]
-	LocalLogLevel=message
-	Fs = 65000
-	bin_ms = ( 1 / $Fs ) * 1000                              #bin size in ms
-	bin_us = $bin_ms * 1000
-	win_ms = 1000
-	na_samples = 100
+  #
+  # This section is specific to the named component.  Any values set here will override values
+  # set in the general section for this component.
+  #
+  [ConfigFileExample]
+  LocalLogLevel=message
+  Fs = 65000
+  bin_ms = ( 1 / $Fs ) * 1000                              #bin size in ms
+  bin_us = $bin_ms * 1000
+  win_ms = 1000
+  na_samples = 100
 
-	#Parentheses are necessary for order of operations
-	nsamps = $na_samples+(($Fs/1000)*$win_ms)
-	nsamps_minus = $nsamps-$na_samples 
-	operatorstr = "plus + minus - asterisk * divison / "    #quotes turn off arithmetic
+  #Parentheses are necessary for order of operations
+  nsamps = $na_samples+(($Fs/1000)*$win_ms)
+  nsamps_minus = $nsamps-$na_samples 
+  operatorstr = "plus + minus - asterisk * divison / "    #quotes turn off arithmetic
 
     # This value not set here - value will be retrieved from the ConfigServer
     #config_server_value = 1
@@ -66,7 +66,7 @@ In this example, our component name is ConfigFileExample.  Any settings in the
 general section will be overridden by settings in this section for the
 ConfigFileExample component.
 
-### The ConfigServer ###
+### The ConfigServer
 
 Gravity also provides support for remote configuration via the ConfigServer.
 The ConfigServer is just another Gravity component, but it is one that provides
@@ -84,43 +84,43 @@ All values provided by the ConfigServer have lower precedence than local config
 values.  In this example we'll use this config_file.ini file:
 
 ```ini
-	[ConfigFileExample]
+[ConfigFileExample]
 
-	config_server_value = 1
-	config_server_overridden_value = 2
+config_server_value = 1
+config_server_overridden_value = 2
 ```
 
 Now we can look at how to retrieve all these values in our code.
 
-### The Configured code (ConfigFileExample) ###
+### The Configured code (ConfigFileExample)
 
 Here we have a very simple component that reads and prints several configured values:
 
 ```cpp
 
-	//Initialize gravity, giving this node a componentID.
-	GravityReturnCode ret = gn.init("ConfigFileExample");
-	if (ret != GravityReturnCodes::SUCCESS)
-	{
-		Log::fatal("Could not initialize GravityNode, return code was %d", ret);
-		exit(1);
-	}
+//Initialize gravity, giving this node a componentID.
+GravityReturnCode ret = gn.init("ConfigFileExample");
+if (ret != GravityReturnCodes::SUCCESS)
+{
+  Log::fatal("Could not initialize GravityNode, return code was %d", ret);
+  exit(1);
+}
 
-	// Note that all config keys are case insensitive
-	Log::message("ServiceDirectoryURL = %s\n", gn.getStringParam( "ServiceDirectoryURL", "Not found" ).c_str() );
-	Log::message("LocalLogLevel = %s\n", gn.getStringParam( "LocalLogLevel", "Not Found" ).c_str() );
-	Log::message("bin_ms = %f\n", gn.getFloatParam( "bin_ms", 0. ) );
-	Log::message("bin_us = %f\n", gn.getFloatParam( "bin_us", 0. ) );
-	Log::message("win_ms = %d\n", gn.getIntParam( "win_ms", 0 ) );
-	Log::message("na_samples = %d\n", gn.getIntParam( "na_samples", 0 ) );
-	Log::message("nsamps = %d\n", gn.getIntParam( "nsamps", 0 ) );
-	Log::message("nsamps_minus = %d\n", gn.getIntParam( "nsamps_minus", 0 ) );
-	Log::message("operatorstr = %s\n", gn.getStringParam( "operatorstr", "Not found" ).c_str() );
-	Log::message("default_value = %s\n", gn.getStringParam( "default_value", "Not found" ).c_str() );
+// Note that all config keys are case insensitive
+Log::message("ServiceDirectoryURL = %s\n", gn.getStringParam( "ServiceDirectoryURL", "Not found" ).c_str() );
+Log::message("LocalLogLevel = %s\n", gn.getStringParam( "LocalLogLevel", "Not Found" ).c_str() );
+Log::message("bin_ms = %f\n", gn.getFloatParam( "bin_ms", 0. ) );
+Log::message("bin_us = %f\n", gn.getFloatParam( "bin_us", 0. ) );
+Log::message("win_ms = %d\n", gn.getIntParam( "win_ms", 0 ) );
+Log::message("na_samples = %d\n", gn.getIntParam( "na_samples", 0 ) );
+Log::message("nsamps = %d\n", gn.getIntParam( "nsamps", 0 ) );
+Log::message("nsamps_minus = %d\n", gn.getIntParam( "nsamps_minus", 0 ) );
+Log::message("operatorstr = %s\n", gn.getStringParam( "operatorstr", "Not found" ).c_str() );
+Log::message("default_value = %s\n", gn.getStringParam( "default_value", "Not found" ).c_str() );
 
-  Log::message("config_server_value = %d\n", gn.getIntParam( "CONFIG_server_value", 0 ));
-  Log::message("config_server_overridden_value = %d\n", gn.getIntParam( "CONFIG_server_overridden_value", 0 ));
-	return 0;
+Log::message("config_server_value = %d\n", gn.getIntParam( "CONFIG_server_value", 0 ));
+Log::message("config_server_overridden_value = %d\n", gn.getIntParam( "CONFIG_server_overridden_value", 0 ));
+return 0;
 ```
 
 The first thing to note here is that the GravityNode must be initialized before
