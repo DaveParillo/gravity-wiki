@@ -66,6 +66,7 @@ You must also download and build the following:
     --with-zeromq-incdir=[HOME]/gravity/deps
     --with-protoc=[HOME]/gravity/deps/protoc
     JAVAPROTOBUF_DIR=[HOME]/gravity/deps/protobuf-java.jar
+    CPPFLAGS=-std=c++11
     GUAVAJAR_DIR=[HOME]/gravity/src/api/MATLAB/guava-13.0.1.jar
 
     make
