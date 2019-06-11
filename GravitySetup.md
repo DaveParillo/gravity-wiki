@@ -11,7 +11,6 @@ The Linux setup is fairly straightforward.  You just need to install:
 * swig
 * maven
 * bison/flex
-* libboost-dev
 
 The last four items above can probably be installed using the package installation system on your flavor of Linux (e.g. sudo apt-get install swig).  If a newer version of swig is needed than is provided by your package management system, you can download the needed version from http://www.swig.org/ and build it.
 
@@ -172,13 +171,6 @@ The tools below are required to build the 32/64  bit Gravity libraries.  Install
     Set the environment variable **LEX_CMD** to win_flex.exe 
     
     Set the environment variable **YACC_CMD** to win_bison.exe 
-
-* Boost
-    http://www.boost.org/
-
-    Download the latest version of the Boost C++ library 
-
-    Set the environment variable **BOOST_HOME** to the Boost root (e.g. C:\boost_1_57_0)
 
 * Maven
     http://maven.apache.org/download.cgi
