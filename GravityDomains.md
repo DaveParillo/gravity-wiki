@@ -57,6 +57,7 @@ while (grc != GravityReturnCodes::SUCCESS)
   gravity::sleep(1000);
   grc = gn.init("ProtobufGravityComponentID");
 }
+```
 
 In previous examples we haven't checked the return value of GravityNode::init,
 but real applications should use the above paradigm instead.  Because the
